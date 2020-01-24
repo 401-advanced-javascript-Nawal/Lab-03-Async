@@ -50,10 +50,10 @@ readFileAsync(file);
 
 let writeFilepromisify = util.promisify(fs.writeFile);
 
-let writeFile = (file,data) =>
+const writeFile = (file,data) =>
 {
     console.log('data in write function : ', data);
-    data.firstName = 'Nawaaaaaaaaaaal';
+    data.firstName = 'Nawal  Suliman ';
     console.log('data after updated : ', data);
     let data2 = JSON.stringify(data);
     writeFilepromisify(file,data2)
