@@ -49,7 +49,25 @@ describe(' \n FS file Read/Write Module ' , () =>
                 .catch(error => expect(error).not.toBeDefined())                         
         });
 
-        
+        it('Write a File and return the contect of it after updated it\'s the same ', () =>
+        {
+            let file = `${__dirname}/../../data/person.json`;
+            let person = {"firstName":"Nawal  Suliman ","lastName":"Scissorhands","hair":{"type":"wavy","color":"brown"},"favoriteFoods":["pizza","cupcakes","children"],"married":false,"kids":0};
+            reader.readWithPromise(file)
+                .then(data => expect(data).toBeDefined())
+                .then(data => expect(data).toBe(person))                       
+        });
+
+        it('Write a File without any error  ', () =>
+        {
+            let file = `${__dirname}/../../data/person.json`;
+            let person = {"firstName":"Nawal  Suliman ","lastName":"Scissorhands","hair":{"type":"wavy","color":"brown"},"favoriteFoods":["pizza","cupcakes","children"],"married":false,"kids":0};
+            reader.readWithPromise(file)
+                .then(data => expect(data).toBeDefined())
+                .then(data => expect(data.firstName).toBe(person.firstName))
+                .catch(error => expect(error).not.toBeDefined())                                               
+        });
+
     });
 
 })
