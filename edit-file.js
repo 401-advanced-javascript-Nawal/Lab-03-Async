@@ -4,9 +4,11 @@ const fs = require('fs');
 const util = require('util');
 
 const reader = ('./lib/reader.js');
+const writer = ('./lib/write.js');
 
 let file = `${__dirname}/data/person.json`;
 
+/******************** READ****************************/
 // First Way to read a file with FS (callback)
 // fs.readFile(file , (error,data) => {
 //     if(error) {throw error;}
@@ -21,7 +23,12 @@ let file = `${__dirname}/data/person.json`;
 let readFilepromisify = util.promisify(fs.readFile);
 
 readFilepromisify(file)
-    .then(data => console.log('data promisify : ',JSON.parse(data.toString())))
+    .then(data => 
+        {
+            console.log('data promisify : ',JSON.parse(data.toString()))
+            return JSON.parse(data.toString());
+        })
+    .then(data => writeFile( file, data))
     .catch(error => console.error('There is an error , promise',error))
 
 
@@ -39,4 +46,15 @@ async function readFileAsync (file) {
 
 readFileAsync(file);
 
+/****************************************** Write *************************************************************/
 
+let writeFilepromisify = util.promisify(fs.writeFile);
+
+let writeFile = (file,data) =>
+{
+    console.log('data in write function : ', data);
+    data.firstName = 'Nawaaaaaaaaaaal';
+    console.log('data after updated : ', data);
+    let data2 = JSON.stringify(data);
+    writeFilepromisify(file,data2)
+}
