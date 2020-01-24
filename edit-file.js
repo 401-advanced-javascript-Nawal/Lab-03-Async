@@ -57,3 +57,7 @@ const writeFile = (file,data) =>
     let data2 = JSON.stringify(data);
     writeFilepromisify(file,data2)
 }
+
+
+// let pro = process.argv;
+// console.log('Process.argv', pro)
