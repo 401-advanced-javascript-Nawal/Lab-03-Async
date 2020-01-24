@@ -45,7 +45,8 @@ describe(' \n FS file reader Module ' , () =>
         {
             let file = `${__dirname}/../../data/person.json`;
             reader.readWithPromise(file)
-                .then(data => expect(data).toBeDefined())              
+                .then(data => expect(data).toBeDefined())
+                .catch(error => expect(error).not.toBeDefined())                         
         });
     });
 
@@ -53,7 +54,8 @@ describe(' \n FS file reader Module ' , () =>
     //     {
     //         let file = `${__dirname}/../../dataxxx/person.json`;
     //         reader.readFilepromisify(file)
-    //         expect(error).toBe(error);
+    //         .then(data => expect(data).toBeUndefined())
+    //         .catch(error => expect(error).toBeDefined())
     //     });
 
 })
