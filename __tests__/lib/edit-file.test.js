@@ -4,10 +4,10 @@ jest.mock('fs');
 
 const reader = require('../../lib/reader.js');
 
-describe(' FS file reader Module ' , () =>
+describe(' \n FS file reader Module ' , () =>
 {
 
-    describe (' Call back reader' , () =>
+    describe (' \n Call back reader' , () =>
     {
         it('Read a File and return the contect of it with no errors ', () =>
         {
@@ -39,9 +39,21 @@ describe(' FS file reader Module ' , () =>
 
     })
 
-    describe (' Promise reader' , () =>
+    describe ('\n Promise reader' , () =>
     {
-        
-    })
+        it('Read a File and return the contect of it with no errors ', () =>
+        {
+            let file = `${__dirname}/../../data/person.json`;
+            reader.readWithPromise(file)
+                .then(data => expect(data).toBeDefined())              
+        });
+    });
+
+    // it('when given a bad file ,returns an error ', () =>
+    //     {
+    //         let file = `${__dirname}/../../dataxxx/person.json`;
+    //         reader.readFilepromisify(file)
+    //         expect(error).toBe(error);
+    //     });
 
 })
