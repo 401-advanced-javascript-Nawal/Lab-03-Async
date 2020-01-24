@@ -27,6 +27,16 @@ describe(' FS file reader Module ' , () =>
                 expect(typeof data).toBe('object');
             });
         })
+
+        it('when given a bad file ,returns an error ', () =>
+        {
+            let file = `${__dirname}/../../dataxxx/person.json`;
+            return reader.readWithCallBack(file,(error,data) =>
+            {
+                expect(error).toBeFalsy();
+            });
+        })
+
     })
 
     describe (' Promise reader' , () =>

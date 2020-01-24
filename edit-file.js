@@ -5,7 +5,7 @@ const util = require('util');
 
 const reader = ('./lib/reader.js');
 
-let file = `${__dirname}/data/person.json`;
+let file = `${__dirname}/dataxxx/person.json`;
 
 // First Way to read a file with FS (callback)
 // fs.readFile(file , (error,data) => {
