@@ -4,7 +4,6 @@ const fs = require('fs');
 const util = require('util');
 
 const reader = ('./lib/reader.js');
-const writer = ('./lib/write.js');
 
 let file = `${__dirname}/data/person.json`;
 
