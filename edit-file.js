@@ -32,14 +32,14 @@ readFilepromisify(file)
 
 
 // Third Way to read a file with FS (Promisify) & async function
-async function readFileAsync (file) {
+async function readFileAsync(file) {
     try
     {
         let data = await readFilepromisify(file);
     }
     catch(error) 
     {
-        console.error('There is an error , async',error)
+        console.error('There is an error , async',error);
     }
 }
 
